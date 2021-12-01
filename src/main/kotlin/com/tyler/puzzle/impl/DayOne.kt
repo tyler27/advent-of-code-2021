@@ -2,6 +2,10 @@ package com.tyler.puzzle.impl
 
 import com.tyler.puzzle.Puzzle
 
+/**
+ * @author Tyler Telis
+ * @email <xlitersps@gmail.com>
+ */
 class DayOne: Puzzle<Int> {
     override fun solvePartOne(): Int {
         return count(input)
