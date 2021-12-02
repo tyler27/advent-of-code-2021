@@ -15,4 +15,4 @@ This is built using kotlin 1.6.0 and gradle 7.3, so make sure you're using the l
 
 ## Usage:
 
-Running the application is simple. First run a gradle build to import all of the required dependecies. Once the gradle import is complete, go ahead and do a gradle build, and then you should be good to run ``Application.kt``` inside of ```com.tyler.puzzle```
+Running the application is simple. First run a gradle build to import all of the required dependecies. Once the gradle import is complete, go ahead and do a gradle build, and then you should be good to run ```Application.kt``` inside of ```com.tyler.puzzle```
