@@ -6,8 +6,8 @@ import com.tyler.puzzle.Puzzle
  * @author Tyler Telis
  * @email <xlitersps@gmail.com>
  */
-class DayTwo: Puzzle<Any> {
-    override fun solvePartOne(): Any {
+class DayTwo: Puzzle<Int> {
+    override fun solvePartOne(): Int {
         var horizontalPosition = 0
         var depth = 0
 
@@ -32,7 +32,7 @@ class DayTwo: Puzzle<Any> {
         return horizontalPosition * depth
     }
 
-    override fun solvePartTwo(): Any {
+    override fun solvePartTwo(): Int {
         var horizontalPosition = 0
         var depth = 0
         var aim = 0
