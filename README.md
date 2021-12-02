@@ -13,8 +13,8 @@ https://adventofcode.com/2021/about
 I decided to use Kotlin and gradle for AOC, as this year I've been pretty into Kotlin. 
 This is built using kotlin 1.6.0 and gradle 7.3, so make sure you're using the latest of everything if you pull this project down.
 
-- Kotlin 1.6.0
-- [https://gradle.org/](Gradle)
+- [Kotlin 1.6.0](https://kotlinlang.org/)
+- [Gradle](https://gradle.org/)
 
 
 ## Usage:
