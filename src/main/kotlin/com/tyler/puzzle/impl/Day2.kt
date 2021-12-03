@@ -6,7 +6,7 @@ import com.tyler.puzzle.Puzzle
  * @author Tyler Telis
  * @email <xlitersps@gmail.com>
  */
-class DayTwo: Puzzle<Int> {
+class Day2: Puzzle<Int> {
     override fun solvePartOne(): Int {
         var horizontalPosition = 0
         var depth = 0
@@ -61,7 +61,7 @@ class DayTwo: Puzzle<Int> {
     }
 
     private companion object {
-        const val INPUT_FILE = "/day_two/input.txt"
-        val input = DayTwo::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines()
+        const val INPUT_FILE = "/day2/input.txt"
+        val input = Day2::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines()
     }
 }

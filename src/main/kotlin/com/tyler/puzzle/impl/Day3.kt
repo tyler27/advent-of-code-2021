@@ -7,7 +7,7 @@ import com.tyler.puzzle.Puzzle
  * @author Tyler Telis
  * @email <xlitersps@gmail.com>
  */
-class DayThree : Puzzle<Long> {
+class Day3 : Puzzle<Long> {
 
     override fun solvePartOne(): Long {
         val gammaRate = input.first().indices.joinToString("") {
@@ -26,20 +26,18 @@ class DayThree : Puzzle<Long> {
         val co2ScrubberRating =  ArrayList<String>(input)
 
        input.first().indices.forEach { index ->
-            if (oxygenGeneratorRating.size == 1 && co2ScrubberRating.size == 1) {
-                return@forEach
-            }
-
             val oxygenSum = sumOf(oxygenGeneratorRating, index)
-            val c02Sum = sumOf(co2ScrubberRating, index)
+            val co2Sum = sumOf(co2ScrubberRating, index)
 
-            if (oxygenGeneratorRating.size != 1) {
-                oxygenGeneratorRating.removeIf { it[index] == if (oxygenSum < 0) '1' else '0' }
-            }
+           if (oxygenGeneratorRating.size == 1)
+               return@forEach
 
-            if (co2ScrubberRating.size != 1) {
-                co2ScrubberRating.removeIf { it[index] == if (c02Sum < 0) '0' else '1' }
-            }
+           oxygenGeneratorRating.removeIf { it[index] == if (oxygenSum < 0) '1' else '0' }
+
+           if (co2ScrubberRating.size == 1)
+               return@forEach
+
+           co2ScrubberRating.removeIf { it[index] == if (co2Sum < 0) '0' else '1' }
         }
 
         return (oxygenGeneratorRating[0].toLong(2) * co2ScrubberRating[0].toLong(2))
@@ -49,6 +47,6 @@ class DayThree : Puzzle<Long> {
 
     private companion object {
         const val INPUT_FILE = "/day3/input.txt"
-        val input = DayThree::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines()
+        val input = Day3::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines()
     }
 }

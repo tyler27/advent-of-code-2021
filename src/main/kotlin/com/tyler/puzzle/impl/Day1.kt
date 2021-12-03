@@ -6,7 +6,7 @@ import com.tyler.puzzle.Puzzle
  * @author Tyler Telis
  * @email <xlitersps@gmail.com>
  */
-class DayOne: Puzzle<Int> {
+class Day1: Puzzle<Int> {
     override fun solvePartOne(): Int {
         return count(input)
     }
@@ -28,7 +28,7 @@ class DayOne: Puzzle<Int> {
     }
 
     private companion object {
-        const val INPUT_FILE = "/day_one/input.txt"
-        val input = DayOne::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines().map { it.toInt() }
+        const val INPUT_FILE = "/day1/input.txt"
+        val input = Day1::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines().map { it.toInt() }
     }
 }
