@@ -11,7 +11,7 @@ https://adventofcode.com/2021/about
 
 ## Language / Requirements
 I decided to use Kotlin and gradle for AOC, as this year I've been pretty into Kotlin. 
-This is built using kotlin 1.6.0 and gradle 7.3, so make sure you're using the latest of everything if you pull this project down.
+This is built using kotlin 1.6.0 and gradle 7.3, so make sure you're using the latest of both.
 
 - [Kotlin 1.6.0](https://kotlinlang.org/)
 - [Gradle](https://gradle.org/)
