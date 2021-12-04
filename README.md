@@ -9,7 +9,7 @@ If you would like to read more about it or particpate, checkout the about page o
 https://adventofcode.com/2021/about
 
 
-## Language / Requirements
+## Language / Requirements:
 I decided to use Kotlin and gradle for AOC, as this year I've been pretty into Kotlin. 
 This is built using kotlin 1.6.0 and gradle 7.3, so make sure you're using the latest of both.
 
