@@ -17,21 +17,21 @@ class Day5 : Puzzle<Int> {
         return plotLines(true).entries.count { it.value > 0 }
     }
 
-    fun plotLines(includeVerticalLines: Boolean): MutableMap<Pair<Int, Int>, Int> {
+    fun plotLines(includeDiagonal: Boolean): MutableMap<Pair<Int, Int>, Int> {
         val lines = mutableMapOf<Pair<Int, Int>, Int>()
 
         numbersToPlot.map {
             val (x1, y1, x2, y2) = it
 
             if (x1 == x2) plotHorizontalLine(lines, x1, y1, y2)
-            else if (y1 == y2) plotVerticalLine(lines, x1, y1, x2)
-            else if (includeVerticalLines) plotVerticalLines(lines, x1, y1, x2, y2)
+            else if (y1 == y2) plotVerticalLines(lines, x1, y1, x2)
+            else if (includeDiagonal) plotDiagonalLines(lines, x1, y1, x2, y2)
         }
 
         return lines
     }
 
-    private fun plotVerticalLines(
+    private fun plotDiagonalLines(
         lines: MutableMap<Pair<Int, Int>, Int>,
         x1: Int,
         y1: Int,
@@ -53,7 +53,7 @@ class Day5 : Puzzle<Int> {
         }
     }
 
-    private fun plotVerticalLine(
+    private fun plotVerticalLines(
         lines: MutableMap<Pair<Int, Int>, Int>,
         x1: Int,
         y1: Int,
