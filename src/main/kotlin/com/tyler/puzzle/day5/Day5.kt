@@ -86,7 +86,6 @@ class Day5 : Puzzle<Int> {
         lines[point] = lines[point]!! + 1
     }
 
-
     private companion object {
         const val INPUT_FILE = "/day5/input.txt"
         val input = Day5::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines()
