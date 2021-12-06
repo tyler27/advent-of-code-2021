@@ -17,7 +17,7 @@ class Day5 : Puzzle<Int> {
         return plotLines(true).entries.count { it.value > 0 }
     }
 
-    fun plotLines(includeDiagonal: Boolean): MutableMap<Pair<Int, Int>, Int> {
+    private fun plotLines(includeDiagonal: Boolean): MutableMap<Pair<Int, Int>, Int> {
         val lines = mutableMapOf<Pair<Int, Int>, Int>()
 
         numbersToPlot.map {
