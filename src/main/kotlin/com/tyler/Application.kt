@@ -33,5 +33,6 @@ fun main() {
     println("Answer two: ${day5.solvePartTwo()}")
 
     val day6 = Day6()
-    println("Answer one ${day6.solvePartOne()}")
+    println("Answer one: ${day6.solvePartOne()}")
+    println("Answer two ${day6.solvePartTwo()}")
 }

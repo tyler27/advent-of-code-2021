@@ -40,7 +40,7 @@ class Day6 : Puzzle<Long> {
     }
 
     private companion object {
-        const val INPUT_FILE = "/day6/example.txt"
+        const val INPUT_FILE = "/day6/input.txt"
         val input = Day6::class.java.getResourceAsStream(INPUT_FILE)!!.bufferedReader().readLines()
     }
 }
