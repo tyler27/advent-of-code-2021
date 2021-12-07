@@ -8,7 +8,7 @@ class Day7: Puzzle<Int> {
     private val input = Day6::class.java.getResourceAsStream(INPUT_FILE)!!
         .bufferedReader()
         .readLines()
-        .first()
+        .single()
         .splitToSequence(",")
         .map(String::toInt)
         .sorted()
@@ -18,10 +18,12 @@ class Day7: Puzzle<Int> {
         return input.sumOf { abs(input[input.size / 2] - it) }
     }
 
-    override fun solvePartTwo(): Int {
-        return (0..input.maxOf { it }).minOf {
-            input.sumOf { alignment -> ((1 + abs(it - alignment)) * abs(it - alignment) / 2) }
-        }
+    override fun solvePartTwo(): Int = (0..input.maxOf { it }).minOf { burnRate ->
+        input.sumOf { position -> getIncrementingFuelRate(position, burnRate) }
+    }
+
+    private fun getIncrementingFuelRate(position: Int, burnRate: Int): Int = with(abs(position - burnRate)) {
+        this * (this + 1) / 2
     }
 
     private companion object {
