@@ -1,11 +1,10 @@
 package com.tyler.puzzle.day7
 
 import com.tyler.puzzle.Puzzle
-import com.tyler.puzzle.day6.Day6
 import kotlin.math.abs
 
 class Day7: Puzzle<Int> {
-    private val input = Day6::class.java.getResourceAsStream(INPUT_FILE)!!
+    private val input = Day7::class.java.getResourceAsStream(INPUT_FILE)!!
         .bufferedReader()
         .readLines()
         .single()
