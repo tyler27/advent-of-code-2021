@@ -19,7 +19,7 @@ class Day8 : Puzzle<Int> {
 
     override fun solvePartTwo(): Int =
         outputSegments
-            .mapIndexed { index, outputSegement -> Pair(mapInputSegments(inputSeqments[index]), outputSegement) }
+            .mapIndexed { index, outputSegment -> Pair(mapInputSegments(inputSeqments[index]), outputSegment) }
             .sumOf(this::getOutputValue)
 
     private fun getOutputValue(pair: Pair<List<String>, List<String>>): Int {
