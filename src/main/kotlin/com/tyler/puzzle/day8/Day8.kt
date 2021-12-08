@@ -32,9 +32,8 @@ class Day8 : Puzzle<Int> {
 
         list.map { it.toCharArray().sorted().joinToString("") }.sortedBy(String::length).forEach { segment ->
             val threes = segment.toSet().intersect(segments[1].toSet())
-            val fives = segment.toSet().intersect(segments[4].toSet())
-            val sixes = segment.toSet().intersect(segments[1].toSet())
-            val nines = segment.toSet().intersect(segments[4].toSet())
+            val fivesOrNines = segment.toSet().intersect(segments[4].toList())
+            val sixes = segment.toSet().intersect(segments[1].toList())
 
             when (segment.length) {
                 2 -> segments[1] = segment
@@ -44,14 +43,14 @@ class Day8 : Puzzle<Int> {
                 5 -> {
                     when {
                         threes.size == 2 -> segments[3] = segment
-                        fives.size == 3 -> segments[5] = segment
+                        fivesOrNines.size == 3 -> segments[5] = segment
                         else -> segments[2] = segment
                     }
                 }
                 6 -> {
                     when {
                         sixes.size < 2 -> segments[6] = segment
-                        nines.size == 4 -> segments[9] = segment
+                        fivesOrNines.size == 4 -> segments[9] = segment
                         else -> segments[0] = segment
                     }
                 }
