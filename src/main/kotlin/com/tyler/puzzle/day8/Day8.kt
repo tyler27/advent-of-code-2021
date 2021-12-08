@@ -31,8 +31,8 @@ class Day8 : Puzzle<Int> {
         val segments = MutableList<String>(10) { "" }
 
         list.map { it.toCharArray().sorted().joinToString("") }.sortedBy(String::length).forEach { segment ->
-            val sixesOrThrees = segment.toSet().intersect(segments[1].toSet())
-            val fivesOrNines = segment.toSet().intersect(segments[4].toList())
+            val intersectFirst = segment.toSet().intersect(segments[1].toSet())
+            val intersectForth = segment.toSet().intersect(segments[4].toList())
 
             when (segment.length) {
                 2 -> segments[1] = segment
@@ -41,15 +41,15 @@ class Day8 : Puzzle<Int> {
                 7 -> segments[8] = segment
                 5 -> {
                     when {
-                        sixesOrThrees.size == 2 -> segments[3] = segment
-                        fivesOrNines.size == 3 -> segments[5] = segment
+                        intersectFirst.size == 2 -> segments[3] = segment
+                        intersectForth.size == 3 -> segments[5] = segment
                         else -> segments[2] = segment
                     }
                 }
                 6 -> {
                     when {
-                        sixesOrThrees.size < 2 -> segments[6] = segment
-                        fivesOrNines.size == 4 -> segments[9] = segment
+                        intersectFirst.size < 2 -> segments[6] = segment
+                        intersectForth.size == 4 -> segments[9] = segment
                         else -> segments[0] = segment
                     }
                 }
