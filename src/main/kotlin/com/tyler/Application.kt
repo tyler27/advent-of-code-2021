@@ -8,6 +8,7 @@ import com.tyler.puzzle.day5.Day5
 import com.tyler.puzzle.day6.Day6
 import com.tyler.puzzle.day7.Day7
 import com.tyler.puzzle.day8.Day8
+import com.tyler.puzzle.day9.Day9
 import kotlin.system.measureTimeMillis
 
 /**
@@ -46,4 +47,8 @@ fun main() {
     val day8 = Day8()
     println("Answer one: ${day8.solvePartOne()}")
     println("Answer two ${day8.solvePartTwo()}")
+
+    val day9 = Day9()
+    println("Answer one: ${day9.solvePartOne()}")
+    println("Answer two ${day9.solvePartTwo()}")
 }
