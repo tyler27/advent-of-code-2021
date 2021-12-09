@@ -20,6 +20,6 @@ class Day9: Puzzle<Int> {
     }
 
     private companion object {
-        const val INPUT_FILE = "/day8/input.txt"
+        const val INPUT_FILE = "/day9/input.txt"
     }
 }
