@@ -1,4 +1,4 @@
-package com.tyler.puzzle.day7
+package com.tyler.puzzle.day07
 
 import com.tyler.puzzle.Puzzle
 import kotlin.math.abs

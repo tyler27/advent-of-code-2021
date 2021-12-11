@@ -1,4 +1,4 @@
-package com.tyler.puzzle.day5
+package com.tyler.puzzle.day05
 
 import com.tyler.puzzle.Puzzle
 

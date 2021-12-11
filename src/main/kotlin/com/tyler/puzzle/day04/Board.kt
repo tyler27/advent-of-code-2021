@@ -1,4 +1,4 @@
-package com.tyler.puzzle.day4
+package com.tyler.puzzle.day04
 
 @JvmInline
 value class Board(

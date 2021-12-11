@@ -1,8 +1,7 @@
-package com.tyler.puzzle.day4
+package com.tyler.puzzle.day04
 
 import com.tyler.puzzle.Puzzle
-import com.tyler.puzzle.day3.Day3
-import com.tyler.puzzle.day4.Board
+import com.tyler.puzzle.day03.Day3
 
 
 /**
