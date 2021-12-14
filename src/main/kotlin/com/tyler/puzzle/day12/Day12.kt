@@ -1,7 +1,6 @@
 package com.tyler.puzzle.day12
 
 import com.tyler.puzzle.Puzzle
-import com.tyler.puzzle.day11.Day11
 import java.util.*
 
 /**
@@ -9,7 +8,7 @@ import java.util.*
  * @email <xlitersps@gmail.com>
  */
 class Day12: Puzzle<Int> {
-    private val input = Day11::class.java.getResourceAsStream(INPUT_FILE)!!
+    private val input = Day12::class.java.getResourceAsStream(INPUT_FILE)!!
         .bufferedReader()
         .readLines()
         .map { it.split("-") }
@@ -17,7 +16,7 @@ class Day12: Puzzle<Int> {
 
     override fun solvePartOne(): Int {
         count = 0
-        searchPaths("start", "start,", false)
+        searchPaths(START_LABEL, "$START_LABEL,", false)
         return count
     }
 
@@ -65,7 +64,7 @@ class Day12: Puzzle<Int> {
 
     override fun solvePartTwo(): Int {
         count = 0
-        searchPaths("start", "start,", true)
+        searchPaths(START_LABEL, "$START_LABEL,", true)
         return count
     }
 
