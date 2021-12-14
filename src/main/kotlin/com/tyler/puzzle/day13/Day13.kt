@@ -12,16 +12,16 @@ class Day13 : Puzzle<Int> {
         .readLines()
 
     override fun solvePartOne(): Int {
-        return paper.crease(instructions.first()).size
+        return coordinates.foldPaper(foldingPoints.first()).size
     }
 
     override fun solvePartTwo(): Int {
-        instructions.fold(paper) { paper, instruction -> paper.crease(instruction) }.printout()
+        foldingPoints.fold(coordinates) { paper, instruction -> paper.foldPaper(instruction) }.printout()
         return 0
     }
 
-    private val paper: Set<Coordinate> = parsePoints(input)
-    private val instructions: List<Coordinate> = parseInstructions(input)
+    private val coordinates: Set<Coordinate> = parseCoordinates(input)
+    private val foldingPoints: List<Coordinate> = generateFolds(input)
 
     private fun Set<Coordinate>.printout() {
         (0..this.maxOf(Coordinate::y)).forEach { y ->
@@ -32,20 +32,20 @@ class Day13 : Puzzle<Int> {
         }
     }
 
-    private fun Set<Coordinate>.crease(instruction: Coordinate): Set<Coordinate> =
-        if (instruction.x != 0) this.map { it.copy(x = it.x.creaseAt(instruction.x)) }.toSet()
-        else this.map { it.copy(y = it.y.creaseAt(instruction.y)) }.toSet()
+    private fun Set<Coordinate>.foldPaper(coordinate: Coordinate): Set<Coordinate> =
+        if (coordinate.x != 0) this.map { it.copy(x = it.x.foldAt(coordinate.x)) }.toSet()
+        else this.map { it.copy(y = it.y.foldAt(coordinate.y)) }.toSet()
 
-    private fun Int.creaseAt(crease: Int): Int =
-        if (this < crease) this else (crease * 2) - this
+    private fun Int.foldAt(position: Int): Int =
+        if (this < position) this else (position * 2) - this
 
-    private fun parsePoints(input: List<String>): Set<Coordinate> =
+    private fun parseCoordinates(input: List<String>): Set<Coordinate> =
         input.takeWhile(String::isNotEmpty)
             .map { it.split(",") }
             .map { Coordinate(it.first().toInt(), it.last().toInt()) }
             .toSet()
 
-    private fun parseInstructions(input: List<String>): List<Coordinate> =
+    private fun generateFolds(input: List<String>): List<Coordinate> =
         input.takeLastWhile(String::isNotEmpty)
             .map { it.split("=") }
             .map {
