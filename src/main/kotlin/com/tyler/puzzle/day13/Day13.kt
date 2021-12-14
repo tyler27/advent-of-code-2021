@@ -16,19 +16,19 @@ class Day13 : Puzzle<Int> {
     }
 
     override fun solvePartTwo(): Int {
-        foldingPoints.fold(coordinates) { paper, instruction -> paper.foldPaper(instruction) }.printout()
+        foldingPoints.fold(coordinates) { paper, instruction -> paper.foldPaper(instruction) }.println()
         return 0
     }
 
     private val coordinates: Set<Coordinate> = parseCoordinates(input)
     private val foldingPoints: List<Coordinate> = generateFolds(input)
 
-    private fun Set<Coordinate>.printout() {
+    private fun Set<Coordinate>.println() {
         (0..this.maxOf(Coordinate::y)).forEach { y ->
             (0..this.maxOf(Coordinate::x)).forEach { x ->
                 print(if (Coordinate(x, y) in this) "#" else " ")
             }
-            println()
+            kotlin.io.println()
         }
     }
 
