@@ -14,7 +14,7 @@ class Day2: Puzzle<Int> {
         input.forEach {
             val commandSplit = it.split(" ")
 
-            val command = commandSplit[0]
+            val command = commandSplit.first()
             val value = commandSplit[1].toInt()
 
             when (command) {
@@ -40,7 +40,7 @@ class Day2: Puzzle<Int> {
         input.forEach {
             val commandSplit = it.split(" ")
 
-            val command = commandSplit[0]
+            val command = commandSplit.first()
             val value = commandSplit[1].toInt()
 
             when (command) {

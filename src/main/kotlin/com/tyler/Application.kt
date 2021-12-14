@@ -10,6 +10,7 @@ import com.tyler.puzzle.day05.Day5
 import com.tyler.puzzle.day06.Day6
 import com.tyler.puzzle.day07.Day7
 import com.tyler.puzzle.day08.Day8
+import com.tyler.puzzle.day12.Day12
 
 /**
  * @author Tyler Telis
@@ -59,4 +60,8 @@ fun main() {
     val day11 = Day11()
     println("Answer one: ${day11.solvePartOne()}")
     println("Answer two ${day11.solvePartTwo()}")
+
+
+    println("Answer one: ${Day12().solvePartOne()}")
+    println("Answer two ${Day12().solvePartTwo()}")
 }

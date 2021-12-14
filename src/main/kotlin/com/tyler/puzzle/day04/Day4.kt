@@ -39,7 +39,7 @@ class Day4 : Puzzle<Int> {
         randomNumbers.forEachIndexed { index, pickedNumber ->
             if (boardsWon.size != boards.size) {
                 boards.forEach { it.mark(pickedNumber) }
-                val winners = getBoardsWon().filterNot { boardsWon.contains(it) }
+                val winners = getBoardsWon().filterNot(boardsWon::contains)
 
                 if (winners.isEmpty()) return@forEachIndexed
 
@@ -52,7 +52,7 @@ class Day4 : Puzzle<Int> {
         return -1
     }
 
-    private fun getBoardsWon() = boards.filter { it.hasWon() }.distinct()
+    private fun getBoardsWon() = boards.filter(Board::hasWon).distinct()
 
     private companion object {
         const val INPUT_FILE = "/day4/input.txt"
