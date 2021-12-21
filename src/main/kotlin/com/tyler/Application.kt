@@ -1,8 +1,6 @@
 package com.tyler
 
 import com.tyler.puzzle.day01.Day1
-import com.tyler.puzzle.day10.Day10
-import com.tyler.puzzle.day11.Day11
 import com.tyler.puzzle.day02.Day2
 import com.tyler.puzzle.day03.Day3
 import com.tyler.puzzle.day04.Day4
@@ -11,9 +9,18 @@ import com.tyler.puzzle.day06.Day6
 import com.tyler.puzzle.day07.Day7
 import com.tyler.puzzle.day08.Day8
 import com.tyler.puzzle.day09.Day9
+import com.tyler.puzzle.day10.Day10
+import com.tyler.puzzle.day11.Day11
 import com.tyler.puzzle.day12.Day12
 import com.tyler.puzzle.day13.Day13
 import com.tyler.puzzle.day14.Day14
+import com.tyler.puzzle.day15.Day15
+import com.tyler.puzzle.day16.Day16
+import com.tyler.puzzle.day17.Day17
+import com.tyler.puzzle.day18.Day18
+import com.tyler.puzzle.day19.Day19
+import com.tyler.puzzle.day20.Day20
+import com.tyler.puzzle.day21.Day21
 
 /**
  * @author Tyler Telis
@@ -89,5 +96,40 @@ fun main() {
     println("-----Day14-----")
     println("Answer one: ${day14.solvePartOne()}")
     println("Answer two ${day14.solvePartTwo()}")
+    println("---------------")
+    val day15 = Day15()
+    println("-----Day15-----")
+    println("Answer one: ${day15.solvePartOne()}")
+    println("Answer two ${day15.solvePartTwo()}")
+    println("---------------")
+    val day16 = Day16()
+    println("-----Day16-----")
+    println("Answer one: ${day16.solvePartOne()}")
+    println("Answer two ${day16.solvePartTwo()}")
+    println("---------------")
+    val day17 = Day17()
+    println("-----Day17-----")
+    println("Answer one: ${day17.solvePartOne()}")
+    println("Answer two ${day17.solvePartTwo()}")
+    println("---------------")
+    val day18 = Day18()
+    println("-----Day18-----")
+    println("Answer one: ${day18.solvePartOne()}")
+    println("Answer two ${day18.solvePartTwo()}")
+    println("---------------")
+    val day19 = Day19()
+    println("-----Day19-----")
+    println("Answer one: ${day19.solvePartOne()}")
+    println("Answer two ${day19.solvePartTwo()}")
+    println("---------------")
+    val day20 = Day20()
+    println("-----Day20-----")
+    println("Answer one: ${day20.solvePartOne()}")
+    println("Answer two ${day20.solvePartTwo()}")
+    println("---------------")
+    val day21 = Day21()
+    println("-----Day21-----")
+    println("Answer one: ${day21.solvePartOne()}")
+    println("Answer two ${day21.solvePartTwo()}")
     println("---------------")
 }

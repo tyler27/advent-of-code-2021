@@ -13,24 +13,24 @@ class Day14 : Puzzle<Long> {
         .readLines()
         .joinToString("\n")
 
-    private val answer = getAnswer()
+    private val solution = getAnswer()
 
     override fun solvePartOne(): Long {
-        return answer.first
+        return solution.first
     }
 
     override fun solvePartTwo(): Long {
-        return answer.second
+        return solution.second
     }
 
     private fun getAnswer(): Pair<Long, Long> {
         val (template, instructions) = input.split("\n\n")
         val polymer = template.windowed(2).groupingBy { it }.eachCount().mapValues { it.value.toLong() }
         val instructionMapping = mapInstructions(instructions)
-        val getResultAfter = step(getCurrentStep(instructionMapping))
+        val getAnswer = handleStep(getCurrentStep(instructionMapping))
         val calculate = calculate(template)
-        val partOne = getResultAfter(polymer, 10)
-        return calculate(partOne) to calculate(getResultAfter(partOne, 30))
+        val answerOne = getAnswer(polymer, 10)
+        return calculate(answerOne) to calculate(getAnswer(answerOne, 30))
     }
 
     private fun mapInstructions(instructions: String) = instructions.split("\n").map { line ->
@@ -60,7 +60,7 @@ class Day14 : Puzzle<Long> {
             result
         }
 
-    private fun step(step: (Map<String, Long>) -> MutableMap<String, Long>) =
+    private fun handleStep(step: (Map<String, Long>) -> MutableMap<String, Long>) =
         { start: Map<String, Long>, steps: Int -> (1..steps).fold(start) { cur, _ -> step(cur) } }
 
     private companion object {

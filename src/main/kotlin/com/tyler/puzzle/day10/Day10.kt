@@ -13,14 +13,11 @@ class Day10 : Puzzle<Long> {
         .bufferedReader()
         .readLines()
 
-    val left = arrayOf('(', '[', '{', '<')
-    val right = arrayOf(')', ']', '}', '>')
-
     override fun solvePartOne(): Long = calculateScore(true)
     override fun solvePartTwo(): Long = calculateScore(false)
 
     private fun calculateScore(isPartOne: Boolean): Long {
-        val convToInt = mapOf(
+        val chars = mapOf(
             '(' to 0,
             '[' to 1,
             '{' to 2,
@@ -42,7 +39,7 @@ class Day10 : Puzzle<Long> {
             var consider = true
 
             for (letter in inp) {
-                val let = convToInt[letter]!!
+                val let = chars[letter]!!
                 if (let < 4) {
                     stack.push(let)
                 }

@@ -11,7 +11,6 @@ class Day11 : Puzzle<Int> {
         .bufferedReader()
         .readLines()
 
-
     override fun solvePartOne(): Int {
         val octopusMap = mapOctopuses()
 

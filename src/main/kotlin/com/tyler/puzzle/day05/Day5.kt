@@ -7,7 +7,9 @@ import com.tyler.puzzle.Puzzle
  * @email <xlitersps@gmail.com>
  */
 class Day5 : Puzzle<Int> {
-    val numbersToPlot = input.map { it.trim().replace(" -> ", ",").split(",").map(String::toInt) }
+    private val numbersToPlot = input.map {
+        it.trim().replace(" -> ", ",").split(",").map(String::toInt)
+    }
 
     override fun solvePartOne(): Int {
         return plotLines(false).entries.count { it.value > 0 }
@@ -68,7 +70,7 @@ class Day5 : Puzzle<Int> {
         }
     }
 
-    private fun plotHorizontalLine(lines: MutableMap<Pair<Int, Int>, Int>, x1:Int, y1: Int, y2: Int) {
+    private fun plotHorizontalLine(lines: MutableMap<Pair<Int, Int>, Int>, x1: Int, y1: Int, y2: Int) {
         val minY = y1.coerceAtMost(y2)
         val maxY = y1.coerceAtLeast(y2)
 
