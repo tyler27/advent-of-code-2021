@@ -45,7 +45,7 @@ class Day15 : Puzzle<Int> {
 
     private fun List<String>.initMatrix(matrix: Array<IntArray>) {
         val rowSize = size
-        val colSize = this[0].length
+        val colSize = this.first().length
         for (row in 0 until rowSize) {
             for (col in 0 until colSize) {
                 matrix[row][col] = this[row][col].digitToInt()
@@ -56,7 +56,7 @@ class Day15 : Puzzle<Int> {
     private fun Array<IntArray>.findAdjacent(row: Int, col: Int): List<Pair<Int, Int>> {
         val adjacentList = mutableListOf<Pair<Int, Int>>()
         val rowSize = this.size
-        val colSize = this[0].size
+        val colSize = this.first().size
         for (direction in Direction.values()) {
             val adjacent = direction(row, col, direction)
             if (isLocationValid(adjacent.first, adjacent.second, rowSize, colSize)) {
@@ -91,7 +91,7 @@ class Day15 : Puzzle<Int> {
             }
         }
 
-        return totalRiskLevel[Pair(matrix.size - 1, matrix[0].size - 1)]!!
+        return totalRiskLevel[Pair(matrix.size - 1, matrix.first().size - 1)]!!
     }
 
     private data class RiskLocation(
@@ -107,7 +107,7 @@ class Day15 : Puzzle<Int> {
 
     override fun solvePartTwo(): Int {
         val rowSize = inputs.size
-        val colSize = inputs[0].length
+        val colSize = inputs.first().length
         val matrix = Array(rowSize * 5) { IntArray(colSize * 5) }
 
         fun Int.nextLevel(): Int = if (this > 9) abs(this - 9) else this
