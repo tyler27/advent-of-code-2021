@@ -9,22 +9,22 @@ import kotlin.math.max
  * @email <xlitersps@gmail.com>
  */
 class Day21 : Puzzle<Any> {
-    private val deterministicDieGame = DeterministicDieGame(Player(P1_START - 1, 0), Player(Companion.P2_START - 1, 0))
+    private val deterministicDieGame = DeterministicDieGame(Player(P1_START - 1, 0), Player(P2_START - 1, 0))
 
     override fun solvePartOne() = deterministicDieGame.play()
 
     data class Universe(var pos1: Int, var pos2: Int, var score1: Int, var score2: Int)
 
     override fun solvePartTwo(): Any {
-        val multiverse = mutableMapOf(Universe(5, 10, 0, 0) to 1L)
+        val multiverse = mutableMapOf(Universe(P1_START, P2_START, 0, 0) to 1L)
 
         var p1TotalWins = 0L
         var p2TotalWins = 0L
 
         while (multiverse.isNotEmpty()) {
-            val iterator = multiverse.iterator()
+            val iterator  = multiverse.iterator()
 
-            val (universe, result) = iterator.next()
+            val (universe, result) = iterator .next()
 
             iterator.remove()
 
@@ -41,60 +41,58 @@ class Day21 : Puzzle<Any> {
     private fun rollQuantumDie(
         p1: Int,
         scoreP1: Int,
-        p1Wins: Long,
+        p1TotalWins: Long,
         result: Long,
         p2: Int,
         scoreP2: Int,
-        p2Wins: Long,
-        multiVerse: MutableMap<Universe, Long>
+        p2TotalWins: Long,
+        multiverse: MutableMap<Universe, Long>
     ): Pair<Long, Long> {
-        var p1TotalWins = p1Wins
+        var p1TotalWins1 = p1TotalWins
         repeat(3) { d1 ->
             repeat(3) { d2 ->
                 repeat(3) { d3 ->
-                    val p1Pos = moveQuantumPlayer(p1, d1, d2, d3)
+                    val newPos = moveQuantumPlayer(p1, d1, d2, d3)
 
                     var p1Score = scoreP1
 
-                    p1Score += p1Pos
-
+                    p1Score += newPos
                     if (p1Score >= 21) {
-                        p1TotalWins += result
+                        p1TotalWins1 += result
                     } else {
-                        splitUniverse(p2, scoreP2, p2Wins, result, p1Pos, p1Score, multiVerse)
+                        splitUniverse(p2, scoreP2, p2TotalWins, result, newPos, p1Score, multiverse)
                     }
                 }
             }
         }
-        return Pair(p1TotalWins, p2Wins)
+        return Pair(p1TotalWins1, p2TotalWins)
     }
 
     private fun splitUniverse(
         p2: Int,
         scoreP2: Int,
-        p2Wins1: Long,
+        p2TotalWins1: Long,
         result: Long,
         px1: Int,
         scorePx1: Int,
         universeState: MutableMap<Universe, Long>
     ) {
-        var p2Wins11 = p2Wins1
+        var p2TotalWins11 = p2TotalWins1
         repeat(3) { dx1 ->
             repeat(3) { dx2 ->
                 repeat(3) { dx3 ->
-                    val newPos = moveQuantumPlayer(p2, dx1, dx2, dx3)
+                    val px2 = moveQuantumPlayer(p2, dx1, dx2, dx3)
 
-                    var p2Score = scoreP2 + moveQuantumPlayer(p2, dx1, dx2, dx3)
-                    p2Score += newPos
-
-                    if (p2Score >= 21) {
-                        p2Wins11 += result
+                    var scorePx2 = scoreP2
+                    scorePx2 += px2
+                    if (scorePx2 >= 21) {
+                        p2TotalWins11 += result
                     } else {
-                        val state = Universe(px1, newPos, scorePx1, p2Score)
-                        if (state in universeState) {
-                            universeState[state] = result + universeState[state]!!
+                        val state1 = Universe(px1, px2, scorePx1, scorePx2)
+                        if (state1 in universeState) {
+                            universeState[state1] = result + universeState[state1]!!
                         } else {
-                            universeState[state] = result
+                            universeState[state1] = result
                         }
                     }
                 }
@@ -102,8 +100,8 @@ class Day21 : Puzzle<Any> {
         }
     }
 
-    private fun moveQuantumPlayer(position1: Int, position2: Int, score1: Int, score2: Int): Int {
-        return (((position1 + position2 + score1 + score2 + 3) - 1) % 10) + 1
+    private fun moveQuantumPlayer(position1: Int, position2: Int, d2: Int, d3: Int): Int {
+        return (((position1 + position2 + d2 + d3 + 3) - 1) % 10) + 1
     }
 
     private companion object {
