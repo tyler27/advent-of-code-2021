@@ -78,21 +78,21 @@ class Day21 : Puzzle<Any> {
         universeState: MutableMap<Universe, Long>
     ) {
         var p2TotalWins11 = p2TotalWins1
-        repeat(3) { dx1 ->
-            repeat(3) { dx2 ->
-                repeat(3) { dx3 ->
-                    val px2 = moveQuantumPlayer(p2, dx1, dx2, dx3)
+        repeat(3) { d1 ->
+            repeat(3) { d2 ->
+                repeat(3) { d3 ->
+                    val newPos = moveQuantumPlayer(p2, d1, d2, d3)
 
-                    var scorePx2 = scoreP2
-                    scorePx2 += px2
-                    if (scorePx2 >= 21) {
+                    val p2Score = scoreP2 + moveQuantumPlayer(p2, d1, d2, d3)
+
+                    if (p2Score >= 21) {
                         p2TotalWins11 += result
                     } else {
-                        val state1 = Universe(px1, px2, scorePx1, scorePx2)
-                        if (state1 in universeState) {
-                            universeState[state1] = result + universeState[state1]!!
+                        val state = Universe(px1, newPos, scorePx1, p2Score)
+                        if (state in universeState) {
+                            universeState[state] = result + universeState[state]!!
                         } else {
-                            universeState[state1] = result
+                            universeState[state] = result
                         }
                     }
                 }
@@ -100,8 +100,8 @@ class Day21 : Puzzle<Any> {
         }
     }
 
-    private fun moveQuantumPlayer(position1: Int, position2: Int, d2: Int, d3: Int): Int {
-        return (((position1 + position2 + d2 + d3 + 3) - 1) % 10) + 1
+    private fun moveQuantumPlayer(position1: Int, position2: Int, score1: Int, score2: Int): Int {
+        return (((position1 + position2 + score1 + score2 + 3) - 1) % 10) + 1
     }
 
     private companion object {
